@@ -32,7 +32,7 @@ export class DemoView extends React.Component<DemoView.Props, DemoView.State> {
         <Text>Changes you make will automatically reload.</Text>
         <Text>Shake your phone to open the developer menu.</Text>
         <Text>Push the button to change the component state.</Text>
-        <Text>{ `Current State is ${ this.state.count }` }</Text>
+        <Text testID='state'>{ `Current State is ${ this.state.count }` }</Text>
         <Button title='increment' onPress={ this.handleIncrement.bind(this) }>
           Increment Count
         </Button>
