@@ -1,12 +1,12 @@
 {
   "expo": {
     "name": "expo-test",
-    "description": "This project is really great.",
+    "description": "Expo TypeScript + React Test",
     "slug": "expo-test",
     "privacy": "public",
     "sdkVersion": "26.0.0",
-    "platforms": ["ios", "android"],
-    "version": "1.0.0",
+    "platforms": [ "ios", "android" ],
+    "version": "0.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -20,6 +20,13 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "packagerOpts": {
+      "sourceExts": [
+        "ts",
+        "tsx"
+      ],
+      "transformer": "node_modules/react-native-typescript-transformer/index.js"
+    },
     "ios": {
       "supportsTablet": true
     }

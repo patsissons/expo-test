@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
-    "jsx": "react-native",
+    "jsx": "react",
     "lib": [
       "dom",
       "es5",
@@ -12,17 +13,29 @@
       "es2016",
       "es2017"
     ],
-    "module": "es2015",
+    "module": "commonjs",
     "moduleResolution": "node",
     "noEmitHelpers": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "sourceMap": false,
-    "strict": true,
-    "target": "es2017",
-    "baseUrl": ".",
+    "outDir": "build/dist",
     "paths": {
       "*": [ "types/*" ]
-    }
-  }
+    },
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5",
+  },
+  "files": [
+    "types/declarations.d.ts",
+    "src/App.tsx",
+  ],
+  "include": [
+    "test/**/*.ts",
+    "test/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules/**/*",
+    "build/**/*"
+  ]
 }
