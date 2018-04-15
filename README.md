@@ -21,6 +21,26 @@ You can run the tests with `yarn jest` and you can start a live test session wit
 
 You can lint and validate the TypeScript files with `yarn lint` and `yarn validate`.
 
+## Debugging
+
+### Setting up Remote Debugging
+
+Remote debugging can be run through the expo tunnel, your local network, or a usb attached device. It is not recommended to use the expo tunnel as it will come with higher latency. The easiest method is to use the local network, and the fastest method is to use a usb attached device. Each session can be started using `yarn start` and appending either `--tunnel`, `--lan`, or `--localhost`.
+
+### Starting a Local Network Debugging Session
+
+Running `yarn start --lan` will begin a local network expo session. On the phone, [enter the developer menu](https://docs.expo.io/versions/latest/workflow/debugging#developer-menu) (shaking the device should bring up the menu option) and choose **Debug JS Remotely**. This should open up a remote debugger tab in your local browser (`http://ip_address:19001/debugger-ui/`) where you can set up breakpoints and step through the code.
+
+### Debugging with VSCode
+
+There is a [guide](https://github.com/Microsoft/vscode-react-native/blob/master/README.md#debugging-react-native-applications) to setting up a **React Native** debugger in VSCode, as well as [some instructions](https://github.com/Microsoft/vscode-react-native/blob/master/doc/expo.md) for configuring an Expo debugger.
+
+Make sure to install the **React Native Tools** extension before starting, this will create an Expo debugger configuration automatically (**Debug in Exponent**). You will also need to install `react-native-cli` globally so that the debugger process can start (`npm install -g react-native-cli`). Once the setup is complete, debug sessions can be started and breakpoints can be set in VSCode.
+
+### Notes
+
+* [HMR](https://docs.expo.io/versions/latest/workflow/debugging#hot-reloading-and-live-reloading) does not work with TypeScript files (yet). Live reloading still works, but performs a full page (and state) reset.
+
 ## Deployment
 
 Most Expo deployment tasks can be accomplished with `yarn exp`.
