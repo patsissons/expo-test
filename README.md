@@ -2,6 +2,11 @@
 
 This is a test repo to get started using Expo with TypeScript and `react-native`.
 
+[![Build Status](https://img.shields.io/travis/patsissons/expo-test/master.svg)](https://travis-ci.org/patsissons/expo-test)
+[![Coverage Status](https://img.shields.io/coveralls/github/patsissons/expo-test/master.svg)](https://coveralls.io/github/patsissons/expo-test)
+[![Github License](https://img.shields.io/github/license/patsissons/expo-test.svg)](https://github.com/patsissons/expo-test/blob/master/LICENSE.md)
+[![tslint](https://img.shields.io/badge/tslint-strict-117D6B.svg)](https://github.com/unional/tslint-config-unional/blob/master/style-strict.md)
+
 ## Quick Start
 
 `yarn && yarn start`
