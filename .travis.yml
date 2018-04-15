@@ -13,4 +13,7 @@ notifications:
   #   on_start: never     # options: [always|never|change] default: always
 
 script:
-  - yarn test
+  - yarn test --coverage
+
+after_success:
+  - yarn coveralls < coverage/lcov.info
