@@ -24,3 +24,7 @@ You can lint and validate the TypeScript files with `yarn lint` and `yarn valida
 ## Deployment
 
 Most Expo deployment tasks can be accomplished with `yarn exp`.
+
+## TypeScript
+
+We must use `commonjs` module generation as the `es*` generators do not properly support class properties (currently at stage 2). Because of this, we must also set the target to `es5`. While this should have no real effect on the application, it can be noted that once class properties are accepted into the `esnext` standard we should be able to start using *es* modules. This configuration is found in the `tsconfig.json` file.
