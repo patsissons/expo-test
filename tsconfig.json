@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "jsx": "react",
+    "lib": [
+      "dom",
+      "es5",
+      "es2015",
+      "es2016",
+      "es2017"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitHelpers": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "build/dist",
+    "paths": {
+      "*": [ "types/*" ]
+    },
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5",
+  },
+  "files": [
+    "types/declarations.d.ts",
+    "src/App.tsx",
+  ],
+  "include": [
+    "test/**/*.ts",
+    "test/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules/**/*",
+    "build/**/*"
+  ]
+}

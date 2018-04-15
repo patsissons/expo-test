@@ -1,0 +1,79 @@
+{
+  "name": "expo-test",
+  "version": "0.1.0",
+  "description": "Expo TypeScript + React Test",
+  "author": {
+    "name": "Pat Sissons",
+    "email": "patricksissons@gmail.com"
+  },
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "exp start",
+    "test": "yarn lint && yarn validate && yarn jest",
+    "lint": "yarn lint-ts",
+    "lint-ts": "tslint -t verbose ./src/**/*.ts ./src/**/*.tsx ./test/**/*.ts ./test/**/*.tsx",
+    "validate": "tsc --noEmit --skipLibCheck -p tsconfig.json",
+    "watch": "yarn watch-jest",
+    "watch-jest": "jest --watch",
+    "android": "exp android",
+    "ios": "exp ios"
+  },
+  "dependencies": {
+    "expo": "^26.0.0",
+    "react": "16.3.0-alpha.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz",
+    "tslib": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/expo": "^25.0.0",
+    "@types/jest": "^22.0.0",
+    "@types/node": "^9.0.0",
+    "@types/react": "^16.0.0",
+    "@types/react-native": "^0.55.0",
+    "@types/react-test-renderer": "^16.0.0",
+    "exp": "^52.0.0",
+    "jest-expo": "^26.0.0",
+    "react-native-typescript-transformer": "^1.0.0",
+    "react-test-renderer": "^16.0.0",
+    "ts-jest": "^22.0.0",
+    "tslint": "^5.0.0",
+    "tslint-config-unional": "^0.9.0",
+    "typescript": "^2.0.0",
+    "yarn": "^1.0.0"
+  },
+  "babel": {
+    "presets": [
+      "babel-preset-expo"
+    ],
+    "env": {
+      "development": {
+        "plugins": [
+          "transform-react-jsx-source"
+        ]
+      }
+    }
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transform": {
+      "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|react-clone-referenced-element|expo(nent)?|@expo(nent)?/.*|react-navigation))"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "ios.ts",
+      "ios.tsx",
+      "android.ts",
+      "android.tsx"
+    ]
+  }
+}
