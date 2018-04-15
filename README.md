@@ -15,9 +15,11 @@ This will install all dependencies and start an Expo development session.
 
 ## Testing
 
-This project uses `jest` and `react-test-renderer` to test react components. This project is also configured to lint against the `tslint-config-unional/strict` style guide and will use `tsc` to validate the TypeScript files. Test files live under `test/**/*.test.tsx`.
+This project uses `jest` and `enzyme` to test react components. This project is also configured to lint against the `tslint-config-unional/strict` style guide and will use `tsc` to validate the TypeScript files. Test files live under `test/**/*.test.tsx`.
 
-You can run the tests with `yarn jest` and you can start a live test session with `yarn watch`.
+You can run the tests with `yarn jest` and you can start a live test session with `yarn watch`. If the structure of a component changes, the snapshot can be updated by running `yarn jest --updateSnapshot --testNamePattern <pattern>` (omit the `--testNamePattern <pattern>` to update all snapshots at once). Running `yarn jest --coverage` will generate a code coverage report.
+
+Testing react components should typically occur through the `enzyme` [Shallow Rendering API](http://airbnb.io/enzyme/docs/api/shallow.html). This API provides a simple *selector* based approach to asserting rendering and structural conditions. Typically a component test will involve a snapshot test, confirm [props](http://airbnb.io/enzyme/docs/api/ShallowWrapper/prop.html) are passed down to subcomponents, and confirm [state](http://airbnb.io/enzyme/docs/api/ShallowWrapper/state.html) is mutated after [simulating](http://airbnb.io/enzyme/docs/api/ShallowWrapper/simulate.html) user interactions (i.e., a button press). See [devhints.io](https://devhints.io/enzyme) for more general usages of `enzyme`.
 
 You can lint and validate the TypeScript files with `yarn lint` and `yarn validate`.
 
