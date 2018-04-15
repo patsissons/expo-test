@@ -13,7 +13,7 @@
     "test": "yarn lint && yarn validate && yarn jest",
     "lint": "yarn lint-ts",
     "lint-ts": "tslint -t verbose ./src/**/*.ts ./src/**/*.tsx ./test/**/*.ts ./test/**/*.tsx",
-    "validate": "tsc --noEmit -p tsconfig.json",
+    "validate": "tsc --noEmit --skipLibCheck -p tsconfig.json",
     "watch": "yarn watch-jest",
     "watch-jest": "jest --watch",
     "android": "exp android",
