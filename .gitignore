@@ -1,4 +1,7 @@
 node_modules/
 .expo/
+.vscode/.react/
+.vscode/launch.json
 build/
+coverage/
 *.log
