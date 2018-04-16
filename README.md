@@ -39,6 +39,31 @@ There is a [guide](https://github.com/Microsoft/vscode-react-native/blob/master/
 
 Make sure to install the **React Native Tools** extension before starting, this will create an Expo debugger configuration automatically (**Debug in Exponent**). You will also need to install `react-native-cli` globally so that the debugger process can start (`npm install -g react-native-cli`). Once the setup is complete, debug sessions can be started and breakpoints can be set in VSCode.
 
+#### Debugging Tests with VSCode
+
+Add the following launch configurations to `.vscode/launch.json` to enable project-wide and per-file test debugging.
+
+```json
+    {
+      "name": "Jest All",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "type": "node",
+      "request": "launch",
+      "args": ["--runInBand"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Jest Current File",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "type": "node",
+      "request": "launch",
+      "args": ["${relativeFile}"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+```
+
 ### Notes
 
 * [HMR](https://docs.expo.io/versions/latest/workflow/debugging#hot-reloading-and-live-reloading) does not work with TypeScript files (yet). Live reloading still works, but performs a full page (and state) reset.
