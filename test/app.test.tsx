@@ -1,5 +1,5 @@
 import React from 'react';
-import { create } from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import { App } from '../src/App';
 
 describe('App', () => {
@@ -8,10 +8,9 @@ describe('App', () => {
     const component = (<App />);
 
     // Act
-    const result = create(component).toJSON();
+    const result = shallow(component);
 
     // Assert
-    expect(result).toBeTruthy();
     expect(result).toMatchSnapshot();
   });
 });
