@@ -1,11 +1,11 @@
 import React from 'react';
 import '../types';
-import { DemoView } from './components/demo/DemoView';
+import { AppNavigator } from './navigators/AppNavigator';
 
 export class App extends React.Component {
   render() {
     return (
-      <DemoView initialCount={ 10 } />
+      <AppNavigator />
     );
   }
 }
