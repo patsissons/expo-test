@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Button } from 'react-native';
-import { DemoView } from '../../../src/components/demo/DemoView';
+import { Demo } from '../../../src/components/demo/Demo';
 
 describe('DemoView', () => {
   it('renders without crashing', () => {
     // Arrange
-    const component = (<DemoView />);
+    const component = (<Demo />);
 
     // Act
     const result = shallow(component);
@@ -19,7 +19,7 @@ describe('DemoView', () => {
   it('supports injecting custom initial count', () => {
     // Arrange
     const initialCount = 123;
-    const component = (<DemoView initialCount={ initialCount } />);
+    const component = (<Demo initialCount={ initialCount } />);
 
     // Act
     const result = shallow(component);
@@ -31,7 +31,7 @@ describe('DemoView', () => {
   it('renders the count state', () => {
     // Arrange
     const initialCount = 123;
-    const component = (<DemoView initialCount={ initialCount } />);
+    const component = (<Demo initialCount={ initialCount } />);
 
     // Act
     const result = shallow(component);
@@ -46,7 +46,7 @@ describe('DemoView', () => {
 
   it('increments the count state after pushing the button', () => {
     // Arrange
-    const component = (<DemoView />);
+    const component = (<Demo />);
 
     // Act
     const result = shallow(component);
@@ -58,7 +58,7 @@ describe('DemoView', () => {
 
   it('renders the updated count state', () => {
     // Arrange
-    const component = (<DemoView />);
+    const component = (<Demo />);
 
     // Act
     const result = shallow(component);
