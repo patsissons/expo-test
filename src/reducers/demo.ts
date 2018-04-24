@@ -1,16 +1,28 @@
-import { Action } from 'redux';
-import { actionTypes } from '../navigation/actions';
+import { DemoState, RequestAction, DemoPayload, actionTypes } from '../components';
 
-const initialState = {
+const initialState: DemoState = {
   count: 0,
-}
+};
 
-export function reducer(state = initialState, action: Action) {
+const defaultAmount = 1;
+
+export function reducer(state = initialState, action: RequestAction<DemoPayload>): DemoState {
+  const amount = action.payload == null ?
+    defaultAmount :
+    (action.payload.amount || defaultAmount);
+
   switch (action.type) {
-    case actionTypes.demo.Increment:
+    case actionTypes.demo.DemoIncrement:
       return {
-        count: state.count + 1,
+        count: state.count + amount,
       };
+    case actionTypes.demo.DemoDecrement:
+      return {
+        count: state.count - amount,
+      };
+    default:
+      // fall through and return input state
+      break;
   }
 
   return state;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { StyleSheet } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
-import { ActionProps, mapDispatchToActions } from '../navigation/actions';
+import { ActionProps, connectToActions } from './actions';
 
 export namespace ReduxComponent {
   export interface StateProps<T> {
@@ -16,12 +16,24 @@ export namespace ReduxComponent {
 }
 
 export abstract class ReduxComponent<P extends ReduxComponent.Props<RS>, RS, S = {}, SS = any> extends React.Component<P, S, SS> {
-}
+  public static readonly connect = connectToActions;
 
-export { mapDispatchToActions };
+  public static readonly defaultStyles = StyleSheet.create({
+    element: {
+    },
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
 
-export function connectToActions<Store, State>(
-  mapStateToProps: (store: Store) => ReduxComponent.StateProps<State>,
-) {
-  return connect(mapStateToProps, mapDispatchToActions);
+  public get defaultStyles() {
+    return ReduxComponent.defaultStyles;
+  }
+
+  public get actions() {
+    return this.props.actions!;
+  }
 }

@@ -1,27 +1,40 @@
+import { Observable } from 'rxjs';
 import { ActionsObservable } from 'redux-observable';
-import { NavigationActions, NavigationParams } from 'react-navigation';
-import { NavigationRequestAction, getMemberNameList, actionTypes } from '../navigation/actions';
-import { RouteNames, routes } from '../navigation/routes';
+import { NavigationActions, NavigationParams, NavigationBackAction, NavigationNavigateAction } from 'react-navigation';
+import { getTypeNames } from '../utils';
+import { RequestAction, actionTypes } from '../components';
+import { RouteNames, routes } from '../navigation';
 
 function navigateTo(routeName: RouteNames, params?: NavigationParams) {
-  return NavigationActions.navigate({ routeName, params })
+  return NavigationActions.navigate({ routeName, params });
 }
 
-function mapToAction(action: NavigationRequestAction) {
+function mapActionToRouteName(action: RequestAction<NavigationParams>) {
   switch (action.type) {
-    case actionTypes.navigation.NavigateBack:
-      return NavigationActions.back(action.params);
-    case actionTypes.navigation.NavigateToMain:
-      return navigateTo(routes.app.names.Main, action.params);
-    case actionTypes.navigation.NavigateToLogin:
-      return navigateTo(routes.app.names.Login, action.params);
-  }
+    case actionTypes.navigation.NavigationToMain:
+      return routes.app.names.Main;
+    case actionTypes.navigation.NavigationToLogin:
+      return routes.app.names.Login;
 
-  throw new Error(`Invalid Navigation Action Type: ${ action.type }`);
+    // istanbul ignore next impossible code path
+    default:
+      // it should not be possible to reach this point unless you have
+      // forgotten to add a mapping case for a newly created action type
+      throw new Error(`Invalid Navigation Action Type: ${ action.type }`);
+  }
 }
 
-export function navigate(actions: ActionsObservable<NavigationRequestAction>) {
+function mapToAction(action: RequestAction<NavigationParams>) {
+  switch (action.type) {
+    case actionTypes.navigation.NavigationBack:
+      return NavigationActions.back(action.payload);
+    default:
+      return navigateTo(mapActionToRouteName(action), action.payload);
+  }
+}
+
+export function navigate(actions: ActionsObservable<RequestAction>): Observable<NavigationBackAction | NavigationNavigateAction> {
   return actions
-    .ofType(...getMemberNameList(actionTypes.navigation))
+    .ofType(...getTypeNames(actionTypes.navigation))
     .map(x => mapToAction(x));
 }

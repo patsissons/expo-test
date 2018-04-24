@@ -1,10 +1,10 @@
-import { NavigationAction, NavigationActions } from 'react-navigation';
-import { Navigator } from '../navigation/AppNavigator';
+import { NavigationAction, NavigationActions, NavigationState } from 'react-navigation';
+import { router } from '../navigation';
 
-const initialState = Navigator.router.getStateForAction(
+const initialState: NavigationState = router.getStateForAction(
   NavigationActions.init(),
 );
 
-export function reducer(state = initialState, action: NavigationAction) {
-  return Navigator.router.getStateForAction(action, state) || state;
+export function reducer(state = initialState, action: NavigationAction): NavigationState {
+  return router.getStateForAction(action, state) || state;
 }

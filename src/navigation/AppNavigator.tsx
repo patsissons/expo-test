@@ -5,37 +5,38 @@ import {
   createReactNavigationReduxMiddleware,
   createReduxBoundAddListener,
 } from 'react-navigation-redux-helpers';
+import { Store } from '../components';
 import { routes } from './routes';
 
 const key = 'root';
 
-export const Navigator: NavigationContainer = StackNavigator(
+const Navigator: NavigationContainer = StackNavigator(
   routes.app.routeMap,
-  { 
+  {
     initialRouteName: routes.app.names.Main,
     mode: 'modal',
   },
 );
 
-export const reactNavigationMiddleware = createReactNavigationReduxMiddleware<AppNavigator.State>(
+export const router = Navigator.router;
+
+export const reactNavigationMiddleware = createReactNavigationReduxMiddleware(
   key,
-  state => state.navigation,
+  // istanbul ignore next very hard to test this
+  (store: Store) => store.navigation,
 );
 
 const addListener = createReduxBoundAddListener(key);
 
 export namespace AppNavigator {
-  export interface State {
+  export interface Props {
     navigation: NavigationState;
-  }
-
-  export interface Props extends State {
-    dispatch: Dispatch<any>;
+    dispatch: Dispatch<Store>;
   }
 }
 
 export const AppNavigator = connect(
-  (state: AppNavigator.State) => ({ navigation: state.navigation }),
+  (store: Store) => ({ navigation: store.navigation }),
 )((props: AppNavigator.Props) => (
   <Navigator navigation={
     addNavigationHelpers({

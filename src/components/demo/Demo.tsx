@@ -1,14 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { ReduxComponent, connectToActions } from '../ReduxComponent';
+import { Store, DemoState, ReduxComponent } from '..';
 
-class DemoComponent extends ReduxComponent<Demo.ComponentProps, Demo.ReduxState> {
+class DemoComponent extends ReduxComponent<Demo.ComponentProps, DemoState> {
   public static readonly styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
     },
   });
 
@@ -16,9 +12,13 @@ class DemoComponent extends ReduxComponent<Demo.ComponentProps, Demo.ReduxState>
     header: 'Current State is ',
   };
 
+  public get styles() {
+    return DemoComponent.styles;
+  }
+
   render() {
     return (
-      <View style={ DemoComponent.styles.container }>
+      <View style={ [ this.defaultStyles.element, this.defaultStyles.container, this.styles.container ] }>
         <Text testID='state'>{ `${ this.props.header! }${ this.props.state.count || 0 }` }</Text>
         <Button title='increment' onPress={ this.handleIncrement.bind(this) }>
           Increment Count
@@ -28,29 +28,19 @@ class DemoComponent extends ReduxComponent<Demo.ComponentProps, Demo.ReduxState>
   }
 
   protected handleIncrement() {
-    this.props.actions.demo.increment();
+    this.actions.demo.increment();
   }
 }
 
 export namespace Demo {
-  export interface ReduxStore {
-    main: {
-      demo: ReduxState,
-    };
-  }
-
-  export interface ReduxState {
-    count: number;
-  }
-
   export interface Props {
     header?: string;
   }
 
-  export interface ComponentProps extends ReduxComponent.Props<ReduxState>, Props {
+  export interface ComponentProps extends ReduxComponent.Props<DemoState>, Props {
   }
 }
 
-export const Demo = connectToActions(
-  (store: Demo.ReduxStore) => ({ state: store.main.demo }),
+export const Demo = ReduxComponent.connect(
+  (store: Store) => ({ state: store.main.demo }),
 )(DemoComponent);

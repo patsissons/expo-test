@@ -6,17 +6,20 @@ interface RouteConfig<T> {
   routeMap: { readonly [ Route in keyof T ]: NavigationRouteConfig };
 }
 
-export type RouteNames = 
-  keyof typeof routes.app.names
+export type RouteNames =
+  | keyof typeof routes.app.names
 ;
 
 function createRouteConfig<T extends NavigationRouteConfigMap>(map: T): RouteConfig<T> {
   return {
     names: Object
       .keys(map)
-      .reduce((m, x) => { m[x] = x; return m; }, {} as any),
+      .reduce(
+        (m, x) => { m[x] = x; return m; },
+        {} as any,
+      ),
     routeMap: map,
-  }
+  };
 }
 
 export const routes = {
@@ -28,4 +31,4 @@ export const routes = {
       screen: screens.Login,
     },
   }),
-}
+};
