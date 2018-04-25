@@ -614,6 +614,12 @@
   dependencies:
     csstype "^2.2.0"
 
+"@types/redux-mock-store@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@types/redux-mock-store/-/redux-mock-store-0.0.13.tgz#f7ec160214b854f2d976ca12525997a21512b2ea"
+  dependencies:
+    redux "^3.6.0"
+
 "@types/redux@^3.0.0":
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/@types/redux/-/redux-3.6.0.tgz#f1ebe1e5411518072e4fdfca5c76e16e74c1399a"
@@ -4333,6 +4339,10 @@ lodash.flattendeep@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.flattendeep/-/lodash.flattendeep-4.4.0.tgz#fb030917f86a3134e5bc9bec0d69e0013ddfedb2"
 
+lodash.isplainobject@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
+
 lodash.map@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.map/-/lodash.map-4.6.0.tgz#771ec7839e3473d9c4cde28b19394c3562f4f6d3"
@@ -5790,6 +5800,12 @@ redux-logger@^2.7.4:
   resolved "https://registry.yarnpkg.com/redux-logger/-/redux-logger-2.10.2.tgz#3c5a5f0a6f32577c1deadf6655f257f82c6c3937"
   dependencies:
     deep-diff "0.3.4"
+
+redux-mock-store@^1.0.0:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/redux-mock-store/-/redux-mock-store-1.5.1.tgz#fca4335392e66605420b5559fe02fc5b8bb6d63c"
+  dependencies:
+    lodash.isplainobject "^4.0.6"
 
 redux-observable@^0.18.0:
   version "0.18.0"

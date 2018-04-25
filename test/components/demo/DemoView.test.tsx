@@ -1,74 +1,88 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Button } from 'react-native';
+import configureStore, { MockStore } from 'redux-mock-store';
+import { Store, DemoState } from '../../../src/components/state';
+import { actionTypes } from '../../../src/navigation/actions';
 import { Demo } from '../../../src/components/demo/Demo';
+
+const defaultState: DemoState = {
+  count: 0,
+};
+
+function createStoreProps(state?: DemoState) {
+  state = state || defaultState;
+
+  const mockStore = configureStore<Partial<Store>>();
+  return { store: mockStore({ main: { demo: state } }) };
+}
+
+function getStateFromStore(store: MockStore<Partial<Store>>): DemoState {
+  const state = store.getState();
+
+  return state == null || state.main == null || state.main.demo == null ?
+    defaultState :
+    state.main.demo;
+}
 
 describe('DemoView', () => {
   it('renders without crashing', () => {
     // Arrange
-    const component = (<Demo />);
+    const storeProps = createStoreProps();
+    const component = (<Demo { ...storeProps as any } />);
 
     // Act
-    const result = shallow(component);
+    const result = shallow(component).dive();
 
     // Assert
     expect(result).toMatchSnapshot();
-    expect(result.state()).toEqual({ count: 0 });
   });
 
-  it('supports injecting custom initial count', () => {
+  it('renders a custom header', () => {
     // Arrange
-    const initialCount = 123;
-    const component = (<Demo initialCount={ initialCount } />);
+    const header = 'test';
+    const storeProps = createStoreProps();
+    const state = getStateFromStore(storeProps.store);
+    const component = (<Demo { ...storeProps as any } header={ header } />);
 
     // Act
-    const result = shallow(component);
-
-    // Assert
-    expect(result.state()).toEqual({ count: initialCount });
-  });
-
-  it('renders the count state', () => {
-    // Arrange
-    const initialCount = 123;
-    const component = (<Demo initialCount={ initialCount } />);
-
-    // Act
-    const result = shallow(component);
+    const result = shallow(component).dive();
 
     // Assert
     expect(result
       .find({ testID: 'state' })
       .children()
       .text(),
-    ).toMatch(new RegExp(`${ initialCount }$`));
+    ).toMatch(new RegExp(`^${ header }${ state.count }$`));
   });
 
-  it('increments the count state after pushing the button', () => {
+  it('renders a custom count state', () => {
     // Arrange
-    const component = (<Demo />);
+    const storeProps = createStoreProps({ count: 123 });
+    const state = getStateFromStore(storeProps.store);
+    const component = (<Demo { ...storeProps as any } />);
 
     // Act
-    const result = shallow(component);
-    result.find(Button).simulate('press');
-
-    // Assert
-    expect(result.state()).toEqual({ count: 1 });
-  });
-
-  it('renders the updated count state', () => {
-    // Arrange
-    const component = (<Demo />);
-
-    // Act
-    const result = shallow(component);
-    result.find(Button).simulate('press');
+    const result = shallow(component).dive();
 
     // Assert
     expect(result
       .find({ testID: 'state' })
       .children()
       .text(),
-    ).toMatch(/1$/);
+    ).toMatch(new RegExp(`${ state.count }$`));
+  });
+
+  it('invokes the increment action after pushing the button', () => {
+    // Arrange
+    const storeProps = createStoreProps();
+    const component = (<Demo { ...storeProps as any } />);
+
+    // Act
+    const result = shallow(component).dive();
+    result.find(Button).simulate('press');
+
+    // Assert
+    expect(storeProps.store.getActions()).toEqual([{ type: actionTypes.demo.DemoIncrement }]);
   });
 });

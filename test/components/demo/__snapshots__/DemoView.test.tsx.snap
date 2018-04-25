@@ -4,7 +4,57 @@ exports[`DemoView renders without crashing 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DemoView />,
+  Symbol(enzyme.__unrendered__): <DemoComponent
+    actions={
+      Object {
+        "demo": Object {
+          "increment": [Function],
+        },
+        "navigation": Object {
+          "goBack": [Function],
+          "toLogin": [Function],
+          "toMain": [Function],
+        },
+      }
+    }
+    header="Current State is "
+    state={
+      Object {
+        "count": 0,
+      }
+    }
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -22,34 +72,6 @@ ShallowWrapper {
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
-        >
-          Open up App.ts to start working on your app!!!
-        </Text>,
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-          Changes you make will automatically reload.
-        </Text>,
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-          Shake your phone to open the developer menu.
-        </Text>,
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-          Push the button to change the component state.
-        </Text>,
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
           testID="state"
         >
           Current State is 0
@@ -61,71 +83,19 @@ ShallowWrapper {
           Increment Count
         </Button>,
       ],
-      "style": Object {
-        "alignItems": "center",
-        "backgroundColor": "#fff",
-        "flex": 1,
-        "justifyContent": "center",
-      },
+      "style": Array [
+        Object {},
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fff",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+        Object {},
+      ],
     },
     "ref": null,
     "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "accessible": true,
-          "allowFontScaling": true,
-          "children": "Open up App.ts to start working on your app!!!",
-          "ellipsizeMode": "tail",
-        },
-        "ref": null,
-        "rendered": "Open up App.ts to start working on your app!!!",
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "accessible": true,
-          "allowFontScaling": true,
-          "children": "Changes you make will automatically reload.",
-          "ellipsizeMode": "tail",
-        },
-        "ref": null,
-        "rendered": "Changes you make will automatically reload.",
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "accessible": true,
-          "allowFontScaling": true,
-          "children": "Shake your phone to open the developer menu.",
-          "ellipsizeMode": "tail",
-        },
-        "ref": null,
-        "rendered": "Shake your phone to open the developer menu.",
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "accessible": true,
-          "allowFontScaling": true,
-          "children": "Push the button to change the component state.",
-          "ellipsizeMode": "tail",
-        },
-        "ref": null,
-        "rendered": "Push the button to change the component state.",
-        "type": [Function],
-      },
       Object {
         "instance": null,
         "key": undefined,
@@ -168,34 +138,6 @@ ShallowWrapper {
             accessible={true}
             allowFontScaling={true}
             ellipsizeMode="tail"
-          >
-            Open up App.ts to start working on your app!!!
-          </Text>,
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
-            Changes you make will automatically reload.
-          </Text>,
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
-            Shake your phone to open the developer menu.
-          </Text>,
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
-            Push the button to change the component state.
-          </Text>,
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             testID="state"
           >
             Current State is 0
@@ -207,71 +149,19 @@ ShallowWrapper {
             Increment Count
           </Button>,
         ],
-        "style": Object {
-          "alignItems": "center",
-          "backgroundColor": "#fff",
-          "flex": 1,
-          "justifyContent": "center",
-        },
+        "style": Array [
+          Object {},
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fff",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+          Object {},
+        ],
       },
       "ref": null,
       "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "accessible": true,
-            "allowFontScaling": true,
-            "children": "Open up App.ts to start working on your app!!!",
-            "ellipsizeMode": "tail",
-          },
-          "ref": null,
-          "rendered": "Open up App.ts to start working on your app!!!",
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "accessible": true,
-            "allowFontScaling": true,
-            "children": "Changes you make will automatically reload.",
-            "ellipsizeMode": "tail",
-          },
-          "ref": null,
-          "rendered": "Changes you make will automatically reload.",
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "accessible": true,
-            "allowFontScaling": true,
-            "children": "Shake your phone to open the developer menu.",
-            "ellipsizeMode": "tail",
-          },
-          "ref": null,
-          "rendered": "Shake your phone to open the developer menu.",
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "accessible": true,
-            "allowFontScaling": true,
-            "children": "Push the button to change the component state.",
-            "ellipsizeMode": "tail",
-          },
-          "ref": null,
-          "rendered": "Push the button to change the component state.",
-          "type": [Function],
-        },
         Object {
           "instance": null,
           "key": undefined,
