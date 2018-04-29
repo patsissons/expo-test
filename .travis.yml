@@ -20,10 +20,5 @@ notifications:
 script:
   - NODE_ENV=$BUILD_ENV yarn test --coverage
 
-deploy:
-  skip_cleanup: true
-  provider: script
-  script: yarn coveralls < coverage/lcov.info
-  on:
-    node: 'lts/*'
-    branch: master
+after_success:
+  - yarn coveralls < coverage/lcov.info
