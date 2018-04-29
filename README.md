@@ -37,7 +37,7 @@ Running `yarn start --lan` will begin a local network expo session. On the phone
 
 There is a [guide](https://github.com/Microsoft/vscode-react-native/blob/master/README.md#debugging-react-native-applications) to setting up a **React Native** debugger in VSCode, as well as [some instructions](https://github.com/Microsoft/vscode-react-native/blob/master/doc/expo.md) for configuring an Expo debugger.
 
-Make sure to install the **React Native Tools** extension before starting, this will create an Expo debugger configuration automatically (**Debug in Exponent**). You will also need to install `react-native-cli` globally so that the debugger process can start (`npm install -g react-native-cli`). Once the setup is complete, debug sessions can be started and breakpoints can be set in VSCode.
+Make sure to install the **React Native Tools** extension before starting, this will create an Expo debugger configuration automatically (**Debug in Exponent**). You will also need to install `react-native-cli` globally so that the debugger process can start (`npm install -g react-native-cli`). Finally, install `exp` globally (`npm install -g exp`) so that we can login to expo (`exp login`). Once the setup is complete, debug sessions can be started and breakpoints can be set in VSCode. Note that you must restart VSCode before running the debugger for the first time.
 
 #### Debugging Tests with VSCode
 

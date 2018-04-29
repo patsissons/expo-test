@@ -1,7 +1,12 @@
 language: node_js
 node_js:
-  - 'node'
+  # yarn is currently broken on node v10
+  # see: https://github.com/yarnpkg/yarn/issues/5727
+  # - 'node'
   - 'lts/*'
+
+env:
+  - BUILD_ENV=production
 
 notifications:
   email: false
@@ -13,7 +18,12 @@ notifications:
   #   on_start: never     # options: [always|never|change] default: always
 
 script:
-  - yarn test --coverage
+  - NODE_ENV=$BUILD_ENV yarn test --coverage
 
-after_success:
-  - yarn coveralls < coverage/lcov.info
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: yarn coveralls < coverage/lcov.info
+  on:
+    node: 'lts/*'
+    branch: master
