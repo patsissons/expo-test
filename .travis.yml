@@ -1,6 +1,8 @@
 language: node_js
 node_js:
-  - 'node'
+  # yarn is currently broken on node v10
+  # see: https://github.com/yarnpkg/yarn/issues/5727
+  # - 'node'
   - 'lts/*'
 
 notifications:
