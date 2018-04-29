@@ -20,9 +20,9 @@
     "ios": "exp ios"
   },
   "dependencies": {
-    "expo": "^26.0.0",
-    "react": "16.3.0-alpha.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz",
+    "expo": "^27.0.0",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
     "react-navigation": "^1.0.0",
     "react-navigation-redux-helpers": "^1.0.0",
     "react-redux": "^5.0.0",
@@ -41,13 +41,15 @@
     "@types/react-native": "^0.55.0",
     "@types/react-navigation": "^1.0.0",
     "@types/react-redux": "^5.0.0",
-    "@types/redux": "^3.0.0",
     "@types/redux-mock-store": "^0.0.13",
+    "babel-core": "^6.0.0",
     "coveralls": "^3.0.0",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
+    "eslint": "^4.0.0",
     "exp": "^53.0.0",
-    "jest-expo": "^26.0.0",
+    "jest": "^22.0.0",
+    "jest-expo": "^27.0.0",
     "react-dom": "^16.0.0",
     "react-native-typescript-transformer": "^1.0.0",
     "redux-devtools-extension": "^2.0.0",
@@ -81,6 +83,10 @@
       "node_modules/(?!((jest-)?react-native|react-clone-referenced-element|expo(nent)?|@expo(nent)?/.*|react-navigation))"
     ],
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleDirectories": [
+      "node_modules",
+      "."
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
