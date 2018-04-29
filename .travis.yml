@@ -5,6 +5,9 @@ node_js:
   # - 'node'
   - 'lts/*'
 
+env:
+  - BUILD_ENV=production
+
 notifications:
   email: false
   # webhooks:
@@ -15,7 +18,12 @@ notifications:
   #   on_start: never     # options: [always|never|change] default: always
 
 script:
-  - yarn test --coverage
+  - NODE_ENV=$BUILD_ENV yarn test --coverage
 
-after_success:
-  - yarn coveralls < coverage/lcov.info
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: yarn coveralls < coverage/lcov.info
+  on:
+    node: 'lts/*'
+    branch: master
