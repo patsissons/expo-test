@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DemoView renders without crashing 1`] = `
+exports[`components Demo renders without crashing 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -8,6 +8,7 @@ ShallowWrapper {
     actions={
       Object {
         "demo": Object {
+          "decrement": [Function],
           "increment": [Function],
         },
         "navigation": Object {
