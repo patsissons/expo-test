@@ -86,5 +86,19 @@ describe('components', () => {
       // Assert
       expect(storeProps.store.getActions()).toEqual([{ type: actionTypes.demo.DemoIncrement }]);
     });
+
+    it('can access env', () => {
+      // Arrange
+      const storeProps = createStoreProps();
+      const component = (<Demo { ...storeProps as any } />);
+
+      // Act
+      const result = shallow(component).dive();
+      const instance: any = result.instance();
+
+      // Assert
+      expect(instance.env).toBeTruthy();
+      expect(instance.env.RELEASE).toBeTruthy();
+    });
   });
 });
