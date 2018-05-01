@@ -43,6 +43,7 @@
     "@types/react-redux": "^5.0.0",
     "@types/redux-mock-store": "^0.0.13",
     "babel-core": "^6.0.0",
+    "babel-plugin-dotenv-import": "^1.0.0",
     "coveralls": "^3.0.0",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
@@ -64,6 +65,14 @@
     "presets": [
       "babel-preset-expo"
     ],
+    "plugins": [
+      [
+        "dotenv-import",
+        {
+          "allowUndefined": true
+        }
+      ]
+    ],
     "env": {
       "development": {
         "plugins": [
@@ -81,6 +90,10 @@
     },
     "transformIgnorePatterns": [
       "node_modules/(?!((jest-)?react-native|react-clone-referenced-element|expo(nent)?|@expo(nent)?/.*|react-navigation))"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/src/utils/env.js"
     ],
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleDirectories": [
