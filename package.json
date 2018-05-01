@@ -43,6 +43,7 @@
     "@types/react-redux": "^5.0.0",
     "@types/redux-mock-store": "^0.0.13",
     "babel-core": "^6.0.0",
+    "babel-plugin-dotenv-import": "^1.0.0",
     "coveralls": "^3.0.0",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
@@ -63,6 +64,16 @@
   "babel": {
     "presets": [
       "babel-preset-expo"
+    ],
+    "plugins": [
+      [
+        "dotenv-import",
+        {
+          "moduleName": "@env",
+          "safe": true,
+          "allowUndefined": true
+        }
+      ]
     ],
     "env": {
       "development": {
