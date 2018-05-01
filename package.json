@@ -69,8 +69,6 @@
       [
         "dotenv-import",
         {
-          "moduleName": "@env",
-          "safe": true,
           "allowUndefined": true
         }
       ]
