@@ -18,7 +18,7 @@ notifications:
   #   on_start: never     # options: [always|never|change] default: always
 
 script:
-  - NODE_ENV=$BUILD_ENV yarn test --coverage
+  - NODE_ENV=$BUILD_ENV yarn test --coverage --coverageReporters lcov --runInBand
 
 after_success:
   - yarn coveralls < coverage/lcov.info
