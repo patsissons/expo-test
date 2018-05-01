@@ -1,3 +1,5 @@
+export * from './env';
+
 export type TypeNameMap<T> = { readonly [ TypeName in keyof T ]: TypeName };
 
 export function getTypeNames<T>(obj: T) {

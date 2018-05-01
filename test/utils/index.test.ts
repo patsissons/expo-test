@@ -1,6 +1,12 @@
 import * as utils from '../../src/utils';
 
 describe('utils', () => {
+  describe('env', () => {
+    it('can use environment variables', () => {
+      expect(utils.env.RELEASE).toBeTruthy();
+    });
+  });
+
   describe('getMemberNameList', () => {
     it('creates member names for a object with members', () => {
       const test = {
