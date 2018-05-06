@@ -11,6 +11,7 @@ export namespace Login {
 }
 
 class LoginScreen extends AppComponent<Login.ScreenProps, LoginState> {
+  // istanbul ignore next navigation options
   public static navigationOptions(params: AppComponent.ContextNavigationScreenProps) {
     return {
       title: params.screenProps.context.localization.LoginScreen,

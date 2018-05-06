@@ -13,6 +13,7 @@ export function reducer(state = initialState, action: RequestAction<LocalePayloa
         env,
       };
     case actionTypes.context.LoadLocalization:
+      // istanbul ignore else should never happen
       if (isLocalePayload(action.payload)) {
         return {
           ...state,
@@ -20,6 +21,7 @@ export function reducer(state = initialState, action: RequestAction<LocalePayloa
           localization: getLocalization(action.payload.locale),
         };
       }
+      // istanbul ignore next should never happen
       break;
     default:
       // fall through and return input state

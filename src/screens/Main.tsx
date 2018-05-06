@@ -4,6 +4,7 @@ import { MainState, AppComponent, withState } from '../components';
 import { Demo } from '../components/demo/Demo';
 
 class MainScreen extends AppComponent<Main.ScreenProps, MainState> {
+  // istanbul ignore next navigation options
   public static navigationOptions(params: AppComponent.ContextNavigationScreenProps) {
     return {
       title: params.screenProps.context.localization.MainScreen,
