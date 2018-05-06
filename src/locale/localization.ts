@@ -1,5 +1,5 @@
 import { LocalizationMap } from './LocalizationMap';
-import { getTypeNames } from '../utils';
+import { getTypeNames, debug } from '../utils';
 import en from './en';
 import en_CA from './en_CA';
 
@@ -10,7 +10,7 @@ const locales: Locales = {
   en_CA,
 };
 
-const localeNames = getTypeNames(locales);
+export const localeNames = getTypeNames(locales);
 
 export const defaultLocale = localeNames[0];
 
@@ -18,11 +18,6 @@ export function getLocalization(locale?: string) {
   // no locale provided, so return the default
   if (locale == null) {
     return locales[defaultLocale];
-  }
-
-  // check for exact match
-  if (locale in locales) {
-    return locales[locale];
   }
 
   // find all matches
@@ -39,9 +34,7 @@ export function getLocalization(locale?: string) {
       );
   }
 
-  if (__DEV__) {
-    console.warn(`${ locale || 'undefined' } is not a valid locale, known locales are: ${ localeNames.join(', ') }`);
-  }
+  debug(`${ locale } is not a valid locale, known locales are: ${ localeNames.join(', ') }`);
 
   // fall back onto default locale
   return locales[defaultLocale];
