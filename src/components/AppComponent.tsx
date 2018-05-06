@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
-import { ReduxProvider, withState } from './context';
+import { ReduxProvider } from './context';
 import * as styles from './styles';
 import * as renderHelpers from './renderHelpers';
 import { ContextState } from './state';
@@ -40,5 +40,3 @@ export abstract class AppComponent<P extends AppComponent.Props<TState>, TState,
     return styles;
   }
 }
-
-export { withState };
