@@ -1,7 +1,8 @@
 import { createFrom } from './LocalizationMap';
-import en = require('./en');
+import en from './en';
 
-export = createFrom(
+// tslint:disable-next-line:variable-name
+export default createFrom(
   en,
   {
     LoginScreen: 'Login Screen EH?',

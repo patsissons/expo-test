@@ -1,6 +1,6 @@
 import { create } from './LocalizationMap';
 
-export = create(
+export default create(
   {
     CurrentStateIs: 'Current state is',
     Increment: 'Increment',

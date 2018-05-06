@@ -1,15 +1,18 @@
 import { LocalizationMap } from './LocalizationMap';
 import { getTypeNames } from '../utils';
+import en from './en';
+import en_CA from './en_CA';
 
 type Locales = { [ name: string ]: LocalizationMap };
 
 const locales: Locales = {
-  en: require('./en'),
-  en_CA: require('./en_CA'),
+  en,
+  en_CA,
 };
 
 const localeNames = getTypeNames(locales);
-const defaultLocale = localeNames[0];
+
+export const defaultLocale = localeNames[0];
 
 export function getLocalization(locale?: string) {
   // no locale provided, so return the default
