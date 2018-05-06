@@ -23,7 +23,6 @@ export namespace ReduxProvider {
     reducers: Reducer<any>;
     epicMiddleware: Middleware;
     reactNavigationMiddleware: Middleware;
-    children?: React.ReactNode;
   }
 
   export interface ComponentProps<T> extends StateProps<T>, ActionProps, ContextProps {

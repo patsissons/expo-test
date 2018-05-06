@@ -14,7 +14,7 @@ const Navigator: NavigationContainer = StackNavigator(
   routes.app.routeMap,
   {
     navigationOptions: {
-      ...(routes.app.options || {}),
+      ...routes.app.options,
     },
     initialRouteName: routes.app.names.Main,
     mode: 'modal',

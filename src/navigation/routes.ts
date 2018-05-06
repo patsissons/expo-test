@@ -22,7 +22,7 @@ function createRouteConfig<T extends NavigationRouteConfigMap>(map: T, options?:
     routeMap: map,
     options: {
       ...defaultNavigationOptions,
-      ...(options || {}),
+      ...options,
     },
   };
 }
