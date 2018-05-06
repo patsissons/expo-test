@@ -4,6 +4,8 @@ import { getTypeNames } from '../utils';
 type Locales = { [ name: string ]: LocalizationMap };
 
 const locales: Locales = {
+  en: require('./en'),
+  en_CA: require('./en_CA'),
 };
 
 const localeNames = getTypeNames(locales);
