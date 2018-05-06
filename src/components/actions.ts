@@ -1,28 +1,43 @@
-import { Dispatch, bindActionCreators, Action } from 'redux';
+import { Action } from 'redux';
 import { NavigationParams } from 'react-navigation';
-import { connect, Connect } from 'react-redux';
-import { getTypeNames, createTypeNameMap } from '../utils';
-import { Store } from './state';
+import { createTypeNameMap, isString } from '../utils';
 
 export type Actions = Readonly<typeof actions>;
 
-export interface ActionProps {
-  readonly actions?: Actions;
-}
-
 export interface RequestAction<T = {}> extends Action {
   payload?: T;
+}
+
+export interface LocalePayload {
+  locale: string;
 }
 
 export interface DemoPayload {
   amount: number;
 }
 
-function getRequestAction<T>(type: string, payload?: T): RequestAction<T> {
+export function isLocalePayload(payload: any): payload is LocalePayload {
+  const localePayload: LocalePayload = payload;
+
+  return (
+    localePayload != null &&
+    isString(localePayload.locale)
+  );
+}
+
+export function getRequestAction(type: string): RequestAction;
+export function getRequestAction<T>(type: string, payload: T): RequestAction<T>;
+export function getRequestAction<T>(type: string, payload?: T): RequestAction<T> {
   return {
     type,
     payload,
   };
+}
+
+enum Context {
+  LoadEnv,
+  LoadLocale,
+  LoadLocalization,
 }
 
 enum Navigation {
@@ -37,11 +52,16 @@ enum Demo {
 }
 
 export const actionTypes = {
+  context: createTypeNameMap(Context),
   navigation: createTypeNameMap(Navigation),
   demo: createTypeNameMap(Demo),
 };
 
-const actions = {
+export const actions = {
+  context: {
+    loadEnv: () => getRequestAction(actionTypes.context.LoadEnv),
+    loadLocale: () => getRequestAction(actionTypes.context.LoadLocale),
+  },
   navigation: {
     goBack: (params?: NavigationParams) => getRequestAction(actionTypes.navigation.NavigationBack, params),
     toMain: (params?: NavigationParams) => getRequestAction(actionTypes.navigation.NavigationToMain, params),
@@ -52,25 +72,3 @@ const actions = {
     decrement: (payload?: DemoPayload) => getRequestAction(actionTypes.demo.DemoDecrement, payload),
   },
 };
-
-function mapDispatchToActions(dispatch: Dispatch<Store>): ActionProps {
-  return {
-    actions: getTypeNames(actions)
-      .reduce(
-        (map, actionName) => {
-          map[actionName] = bindActionCreators(actions[actionName], dispatch);
-
-          return map;
-        },
-        {} as any,
-      ),
-  };
-}
-
-function connectToActionsHelper(...args: Array<any>) {
-  args[1] = args[1] || mapDispatchToActions;
-
-  return connect.apply(undefined, args);
-}
-
-export const connectToActions: Connect = connectToActionsHelper;
