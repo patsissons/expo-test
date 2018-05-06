@@ -1,4 +1,5 @@
 export * from './env';
+export * from './typeguards';
 
 export type TypeNameMap<T> = { readonly [ TypeName in keyof T ]: TypeName };
 
