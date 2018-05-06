@@ -14,15 +14,15 @@ describe('App', () => {
     expect(result).toMatchSnapshot();
   });
 
-  it('binds to the redux store', () => {
-    // Arrange
-    const component = (<App />);
+  // it('binds to the redux store', () => {
+  //   // Arrange
+  //   const component = (<App />);
 
-    // Act
-    const result = shallow(component);
-    const store = result.prop('store');
+  //   // Act
+  //   const result = shallow(component);
+  //   const store = result.prop('store');
 
-    // Assert
-    expect(store).toBeTruthy();
-  });
+  //   // Assert
+  //   expect(store).toBeTruthy();
+  // });
 });

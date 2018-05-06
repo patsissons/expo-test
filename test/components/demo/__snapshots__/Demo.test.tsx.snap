@@ -7,6 +7,10 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <DemoComponent
     actions={
       Object {
+        "context": Object {
+          "loadEnv": [Function],
+          "loadLocale": [Function],
+        },
         "demo": Object {
           "decrement": [Function],
           "increment": [Function],
@@ -18,7 +22,22 @@ ShallowWrapper {
         },
       }
     }
-    header="Current State is "
+    context={
+      Object {
+        "env": Object {
+          "RELEASE": "local",
+        },
+        "locale": "en",
+        "localization": Object {
+          "CurrentStateIs": "Current state is",
+          "Increment": "Increment",
+          "IncrementCount": "Increment Count",
+          "Login": "Login",
+          "LoginScreen": "Login Screen",
+          "MainScreen": "Main Screen",
+        },
+      }
+    }
     state={
       Object {
         "count": 0,
@@ -75,25 +94,21 @@ ShallowWrapper {
           ellipsizeMode="tail"
           testID="state"
         >
-          Current State is 0
+          Current state is 0
         </Text>,
         <Button
           onPress={[Function]}
-          title="increment"
+          title="Increment"
         >
           Increment Count
         </Button>,
       ],
-      "style": Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#fff",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-        Object {},
-      ],
+      "style": Object {
+        "alignItems": "center",
+        "backgroundColor": "#fff",
+        "flex": 1,
+        "justifyContent": "center",
+      },
     },
     "ref": null,
     "rendered": Array [
@@ -104,12 +119,12 @@ ShallowWrapper {
         "props": Object {
           "accessible": true,
           "allowFontScaling": true,
-          "children": "Current State is 0",
+          "children": "Current state is 0",
           "ellipsizeMode": "tail",
           "testID": "state",
         },
         "ref": null,
-        "rendered": "Current State is 0",
+        "rendered": "Current state is 0",
         "type": [Function],
       },
       Object {
@@ -119,7 +134,7 @@ ShallowWrapper {
         "props": Object {
           "children": "Increment Count",
           "onPress": [Function],
-          "title": "increment",
+          "title": "Increment",
         },
         "ref": null,
         "rendered": "Increment Count",
@@ -141,25 +156,21 @@ ShallowWrapper {
             ellipsizeMode="tail"
             testID="state"
           >
-            Current State is 0
+            Current state is 0
           </Text>,
           <Button
             onPress={[Function]}
-            title="increment"
+            title="Increment"
           >
             Increment Count
           </Button>,
         ],
-        "style": Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#fff",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-          Object {},
-        ],
+        "style": Object {
+          "alignItems": "center",
+          "backgroundColor": "#fff",
+          "flex": 1,
+          "justifyContent": "center",
+        },
       },
       "ref": null,
       "rendered": Array [
@@ -170,12 +181,12 @@ ShallowWrapper {
           "props": Object {
             "accessible": true,
             "allowFontScaling": true,
-            "children": "Current State is 0",
+            "children": "Current state is 0",
             "ellipsizeMode": "tail",
             "testID": "state",
           },
           "ref": null,
-          "rendered": "Current State is 0",
+          "rendered": "Current state is 0",
           "type": [Function],
         },
         Object {
@@ -185,7 +196,7 @@ ShallowWrapper {
           "props": Object {
             "children": "Increment Count",
             "onPress": [Function],
-            "title": "increment",
+            "title": "Increment",
           },
           "ref": null,
           "rendered": "Increment Count",
