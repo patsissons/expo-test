@@ -4,7 +4,7 @@ import { Provider, connect } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Store, ContextState } from '../state';
 import { Actions, actions } from '../actions';
-import { getTypeNames } from '../../utils';
+import { getTypeNames, isDebugEnvironment } from '../../utils';
 
 export namespace ReduxProvider {
   export interface StateProps<T> {
@@ -39,8 +39,8 @@ export class ReduxProvider extends React.Component<ReduxProvider.Props> {
 
     let storeEnhancer: StoreEnhancer<any> = middleware;
 
-    // istanbul ignore else impossible code path when testing
-    if (__DEV__) {
+    // istanbul ignore next impossible code path when testing
+    if (isDebugEnvironment()) {
       storeEnhancer = composeWithDevTools(middleware);
     }
 
