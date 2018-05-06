@@ -13,6 +13,9 @@ const key = 'root';
 const Navigator: NavigationContainer = StackNavigator(
   routes.app.routeMap,
   {
+    navigationOptions: {
+      ...(routes.app.options || {}),
+    },
     initialRouteName: routes.app.names.Main,
     mode: 'modal',
   },
