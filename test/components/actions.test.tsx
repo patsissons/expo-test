@@ -1,76 +1,61 @@
-import * as React from 'react';
-import { shallow } from 'enzyme';
-import configureStore, { MockStore } from 'redux-mock-store';
-import { Actions, actionTypes, connectToActions } from '../../src/components';
+import { getRequestAction, actionTypes, actions } from '../../src/components/actions';
 
-function createConnectedComponent(store: MockStore<any>) {
-  const Component = connectToActions((state: any) => ({ state }))(() => null);
-  return (<Component { ...{ store } } />);
+function testAction(action: Function, actionType: string, testPayload = true) {
+  if (testPayload) {
+    const payload = {};
+    expect(action(payload)).toEqual(getRequestAction(actionType, payload));
+  }
+
+  expect(action()).toEqual(getRequestAction(actionType));
 }
 
 describe('components', () => {
   describe('actions', () => {
-    // describe('mapDispatchToActions', () => {
-    //   it('binds dispatch to action set', () => {
-    //     const dispatch = jest.fn();
-    //     const bindActionCreators = jest.spyOn(redux, 'bindActionCreators');
+    describe('getRequestAction', () => {
+      it('can create an action without a payload', () => {
+        const type = 'test';
 
-    //     const result = actions.mapDispatchToActions(dispatch);
-    //     result.actions!.navigation.goBack();
+        const result = getRequestAction(type);
 
-    //     expect(result.actions).toBeTruthy();
-    //     expect(bindActionCreators).toHaveBeenCalled();
-    //     expect(dispatch).toHaveBeenCalled();
-    //   });
-    // });
-    describe('connectToActions', () => {
-      it('connects a component to actions via props', () => {
-        // Arrange
-        const store = configureStore()({});
-        const component = createConnectedComponent(store);
+        expect(result).toEqual({ type });
+      });
 
-        // Act
-        const result = shallow(component);
-        const props = result.props();
-        const actions: Actions = props.actions;
+      it('can create an action with a payload', () => {
+        const type = 'test';
+        const payload = { test: 'test' };
 
-        // Assert
-        expect(props).toBeTruthy();
-        expect(actions).toBeTruthy();
+        const result = getRequestAction(type, payload);
+
+        expect(result).toEqual({ type, payload });
       });
     });
 
     describe('actionTypes', () => {
-      it('contains names of actions available', () => {
-        // Assert
+      it('maps to actions', () => {
+        const actionTypeNames = Object.keys(actionTypes);
+
         expect(actionTypes).toBeTruthy();
-        expect(Object.keys(actionTypes).length).toBeGreaterThan(0);
+        expect(actionTypeNames.every(x => x in actions)).toBeTruthy();
       });
     });
 
-    it('can create valid request actions', () => {
-      // Arrange
-      const payload: any = { payload: 'test' };
-      const store = configureStore()({});
-      const component = createConnectedComponent(store);
-      const result = shallow(component);
-      const actions: Actions = result.prop('actions');
+    describe('actions', () => {
+      it('maps to actionTypes', () => {
+        const actionNames = Object.keys(actions);
 
-      // Act
-      actions.navigation.goBack(payload);
-      actions.navigation.toMain(payload);
-      actions.navigation.toLogin(payload);
-      actions.demo.increment(payload);
-      actions.demo.decrement(payload);
+        expect(actions).toBeTruthy();
+        expect(actionNames.every(x => x in actionTypes)).toBeTruthy();
+      });
 
-      // Assert
-      expect(store.getActions()).toEqual([
-        { type: actionTypes.navigation.NavigationBack, payload },
-        { type: actionTypes.navigation.NavigationToMain, payload },
-        { type: actionTypes.navigation.NavigationToLogin, payload },
-        { type: actionTypes.demo.DemoIncrement, payload },
-        { type: actionTypes.demo.DemoDecrement, payload },
-      ]);
+      it('creates request actions', () => {
+        testAction(actions.context.loadEnv, actionTypes.context.LoadEnv, false);
+        testAction(actions.context.loadLocale, actionTypes.context.LoadLocale, false);
+        testAction(actions.navigation.goBack, actionTypes.navigation.NavigationBack);
+        testAction(actions.navigation.toMain, actionTypes.navigation.NavigationToMain);
+        testAction(actions.navigation.toLogin, actionTypes.navigation.NavigationToLogin);
+        testAction(actions.demo.increment, actionTypes.demo.DemoIncrement);
+        testAction(actions.demo.decrement, actionTypes.demo.DemoDecrement);
+      });
     });
   });
 });

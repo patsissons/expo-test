@@ -5,6 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Unknown
+    context={undefined}
     dispatch={[Function]}
     navigation={
       Object {
@@ -84,6 +85,9 @@ ShallowWrapper {
           ],
         },
       },
+      "screenProps": Object {
+        "context": undefined,
+      },
     },
     "ref": null,
     "rendered": null,
@@ -116,6 +120,9 @@ ShallowWrapper {
               },
             ],
           },
+        },
+        "screenProps": Object {
+          "context": undefined,
         },
       },
       "ref": null,

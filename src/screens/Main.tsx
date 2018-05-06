@@ -1,34 +1,27 @@
 import React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
-import { NavigationScreenOptions } from 'react-navigation';
-import { Store, MainState, ReduxComponent } from '../components';
+import { View, Button } from 'react-native';
+import { MainState, AppComponent, withState } from '../components';
 import { Demo } from '../components/demo/Demo';
 
-class MainScreen extends ReduxComponent<Main.ScreenProps, MainState> {
-  public static readonly styles = StyleSheet.create({
-    container: {
-    },
-  });
-
-  public static readonly navigationOptions: NavigationScreenOptions = {
-    title: 'Main Screen',
-  };
-
-  public get styles() {
-    return MainScreen.styles;
+class MainScreen extends AppComponent<Main.ScreenProps, MainState> {
+  // istanbul ignore next navigation options
+  public static navigationOptions(params: AppComponent.ContextNavigationScreenProps) {
+    return {
+      title: params.screenProps.context.localization.MainScreen,
+    };
   }
 
   render() {
     return (
-      <View style={ [ this.defaultStyles.element, this.defaultStyles.container, this.styles.container ] }>
-        <Button title='Login' onPress={ this.handleLogin.bind(this) }>Login</Button>
+      <View style={ this.S.common.container }>
+        <Button title={ this.L.Login } onPress={ this.handleLogin.bind(this) }>{ this.L.Login }</Button>
         <Demo />
       </View>
     );
   }
 
   protected handleLogin() {
-    this.actions.navigation.toLogin();
+    this.props.actions.navigation.toLogin();
   }
 }
 
@@ -36,10 +29,11 @@ export namespace Main {
   export interface Props {
   }
 
-  export interface ScreenProps extends ReduxComponent.ScreenProps<MainState>, Props {
+  export interface ScreenProps extends AppComponent.ScreenProps<MainState>, Props {
   }
 }
 
-export const Main = ReduxComponent.connect(
-  (store: Store) => ({ state: store.main }),
-)(MainScreen);
+export const Main = withState(
+  MainScreen,
+  x => x.main,
+);

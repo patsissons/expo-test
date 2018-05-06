@@ -1,3 +1,5 @@
 export * from './state';
 export * from './actions';
-export * from './ReduxComponent';
+export * from './context';
+export * from './AppComponent';
+export * from './startup/Startup';
