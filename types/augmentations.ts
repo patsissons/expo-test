@@ -2,6 +2,8 @@
 export {};
 
 declare global {
+  const __TEST__: boolean;
+
   interface Function {
     // this allows bind functions to return strongly typed results
     bind<T extends Function>(this: T, thisArg: any, ...argArray: any[]): T;
