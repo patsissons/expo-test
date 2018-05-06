@@ -9,14 +9,15 @@ export function coerceToText(content: any) {
     );
   }
 
-  if (isObject(content)) {
+  if (React.isValidElement(content)) {
+    if (content.type === Text) {
+      return content;
+    }
+  }
+  else if (isObject(content)) {
     return (
       <Text { ...content } />
     );
-  }
-
-  if (React.isValidElement(content)) {
-    return content;
   }
 
   return false;
