@@ -1,4 +1,4 @@
-import { getRequestAction, actionTypes, actions } from '../../src/components/actions';
+import { getRequestAction, actionTypes, actions } from '../../src/framework/actions';
 
 function testAction(action: Function, actionType: string, testPayload = true) {
   if (testPayload) {

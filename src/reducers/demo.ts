@@ -1,4 +1,4 @@
-import { DemoState, RequestAction, DemoPayload, actionTypes } from '../components';
+import { DemoState, RequestAction, DemoPayload, actionTypes } from '../framework';
 
 const initialState: DemoState = {
   count: 0,

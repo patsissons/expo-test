@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store';
 import { Env, env } from '../src/utils';
 import { defaultLocale, getLocalization } from '../src/locale/localization';
-import { Store, ContextState } from '../src/components';
+import { Store, ContextState } from '../src/framework';
 
 const locale = defaultLocale;
 const localization = getLocalization(defaultLocale);

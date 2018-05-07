@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import * as redux from 'redux';
-import { ReduxProvider } from '../../../src/components/context/ReduxStore';
+import { ReduxProvider } from '../../../src/framework/context/ReduxStore';
 import {  } from 'redux-devtools-extension';
 
 const applyMiddleware = redux.applyMiddleware as jest.Mock;

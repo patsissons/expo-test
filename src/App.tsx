@@ -4,7 +4,8 @@ import '../types';
 import { reducers } from './reducers';
 import { epics } from './epics';
 import { AppNavigator, reactNavigationMiddleware } from './navigation';
-import { ReduxProvider, Startup } from './components';
+import { ReduxProvider } from './framework';
+import { Startup } from './components';
 
 export class App extends React.Component {
   render() {

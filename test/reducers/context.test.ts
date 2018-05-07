@@ -1,4 +1,4 @@
-import { ContextState, RequestAction, LocalePayload, actionTypes } from '../../src/components';
+import { ContextState, RequestAction, LocalePayload, actionTypes } from '../../src/framework';
 import { reducer } from '../../src/reducers/context';
 import { getLocalization } from '../../src/locale';
 

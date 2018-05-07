@@ -2,14 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Text } from 'react-native';
 import { createStoreProps } from '../../storeUtils';
-import { Startup } from '../../../src/components/startup/Startup';
+import { Wait } from '../../../src/components/wait/Wait';
 
 describe('components', () => {
-  describe('Startup', () => {
+  describe('Wait', () => {
     it('renders loading mode without crashing', () => {
       // Arrange
-      const storeProps = createStoreProps({ context: {} });
-      const component = (<Startup { ...storeProps as any } />);
+      const storeProps = createStoreProps({});
+      const component = (<Wait { ...storeProps as any } isWaiting={ () => true } />);
 
       // Act
       const result = shallow(component).dive();
@@ -20,15 +20,12 @@ describe('components', () => {
 
     it('renders loaded mode without crashing', () => {
       // Arrange
-      const loadedState = {
-        context: {
-          env: {},
-          locale: 'test',
-          localization: {},
-        },
-      };
-      const storeProps = createStoreProps(loadedState);
-      const component = (<Startup { ...storeProps as any } />);
+      const storeProps = createStoreProps({});
+      const component = (
+        <Wait { ...storeProps as any } isWaiting={ () => false }>
+          <div>test</div>
+        </Wait>
+      );
 
       // Act
       const result = shallow(component).dive();
@@ -41,7 +38,7 @@ describe('components', () => {
       // Arrange
       const storeProps = createStoreProps({ context: {} });
       const content = (<Text testID='custom'>test</Text>);
-      const component = (<Startup { ...storeProps as any } activityIndicator={ content } />);
+      const component = (<Wait { ...storeProps as any } isWaiting={ () => true } activityIndicator={ content } />);
 
       // Act
       const result = shallow(component).dive();
@@ -52,6 +49,18 @@ describe('components', () => {
         .children()
         .text(),
       ).toBe('test');
+    });
+
+    it('renders loading mode with custom content', () => {
+      const storeProps = createStoreProps({});
+      const init = jest.fn();
+      const component = (<Wait { ...storeProps as any } isWaiting={ () => true } init={ init } />);
+
+      // Act
+      shallow(component).dive();
+
+      // Assert
+      expect(init).toHaveBeenCalled();
     });
   });
 });

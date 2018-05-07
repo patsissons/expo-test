@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Button } from 'react-native';
 import { createStoreProps } from '../storeUtils';
-import { Store, actionTypes } from '../../src/components';
+import { Store, actionTypes } from '../../src/framework';
 import { Main } from '../../src/screens/Main';
 
 const defaultState: Partial<Store> = {

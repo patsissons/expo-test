@@ -1,7 +1,7 @@
 import 'rxjs';
 import { NavigationActions } from 'react-navigation';
 import { ActionsObservable } from 'redux-observable';
-import { getRequestAction, actionTypes } from '../../src/components';
+import { getRequestAction, actionTypes } from '../../src/framework';
 import { routes } from '../../src/navigation';
 import { navigate } from '../../src/epics/navigation';
 

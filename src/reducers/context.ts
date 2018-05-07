@@ -1,4 +1,4 @@
-import { ContextState, RequestAction, LocalePayload, isLocalePayload, actionTypes } from '../components';
+import { ContextState, RequestAction, LocalePayload, isLocalePayload, actionTypes } from '../framework';
 import { getLocalization } from '../locale';
 import { env } from '../utils';
 

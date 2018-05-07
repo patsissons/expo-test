@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { Store } from '../components';
+import { Store } from '../framework';
 import * as context from './context';
 import * as navigation from './navigation';
 import * as demo from './demo';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Button } from 'react-native';
-import { MainState, AppComponent, withState } from '../components';
-import { Demo } from '../components/demo/Demo';
+import { MainState, AppComponent, withState } from '../framework';
+import { Demo } from '../components';
 
 class MainScreen extends AppComponent<Main.ScreenProps, MainState> {
   // istanbul ignore next navigation options

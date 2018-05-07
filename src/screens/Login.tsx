@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { LoginState, AppComponent, withState } from '../components';
+import { LoginState, AppComponent, withState } from '../framework';
 
 export namespace Login {
   export interface Props {

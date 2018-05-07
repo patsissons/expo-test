@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
-import { coerceToText } from '../../src/components/renderHelpers';
+import { coerceToText } from '../../src/framework/renderHelpers';
 
 describe('components', () => {
   describe('renderHelpers', () => {

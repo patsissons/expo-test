@@ -5,7 +5,7 @@ import {
   createReactNavigationReduxMiddleware,
   createReduxBoundAddListener,
 } from 'react-navigation-redux-helpers';
-import { Store, ContextState } from '../components';
+import { Store, ContextState } from '../framework';
 import { routes } from './routes';
 
 const key = 'root';
