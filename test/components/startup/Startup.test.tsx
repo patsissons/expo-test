@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Text } from 'react-native';
 import { createStoreProps } from '../../storeUtils';
-import { Startup } from '../../../src/components/startup/Startup';
+import { Startup } from '../../../src/components/wait/Startup';
 
 describe('components', () => {
   describe('Startup', () => {

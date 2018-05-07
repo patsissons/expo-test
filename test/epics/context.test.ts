@@ -1,6 +1,6 @@
 import 'rxjs';
 import { ActionsObservable } from 'redux-observable';
-import { getRequestAction, actionTypes } from '../../src/components';
+import { getRequestAction, actionTypes } from '../../src/framework';
 import { loadLocale } from '../../src/epics/context';
 
 jest.mock('expo', () => {

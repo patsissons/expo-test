@@ -1,7 +1,7 @@
 import 'rxjs';
 import { Action } from 'redux';
 import { combineEpics, Epic } from 'redux-observable';
-import { Store } from '../components';
+import { Store } from '../framework';
 import { loadLocale } from './context';
 import { navigate } from './navigation';
 

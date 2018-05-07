@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
-import { Store, AppComponent, withStore } from '..';
+import { Store, AppComponent, withStore } from '../../framework';
 
-export namespace Startup {
+export namespace Wait {
   export interface Props {
+    isWaiting: (store: Store) => boolean;
+    init?: Function;
     header?: any;
     activityIndicator?: any;
   }
@@ -19,18 +21,19 @@ export namespace Startup {
   }
 }
 
-class StartupComponent extends AppComponent<Startup.ComponentProps, Store> {
-  static defaultProps: Partial<Startup.ComponentProps> = {
+class WaitComponent extends AppComponent<Wait.ComponentProps, Store> {
+  static defaultProps: Partial<Wait.ComponentProps> = {
     size: 'large',
   };
 
   componentDidMount() {
-    this.props.actions.context.loadEnv();
-    this.props.actions.context.loadLocale();
+    if (this.props.init) {
+      this.props.init();
+    }
   }
 
   render() {
-    if (this.isLoading) {
+    if (this.props.isWaiting(this.props.state)) {
       return (
         <View style={ this.S.common.container }>
           { this.R.coerceToText(this.props.header) }
@@ -53,17 +56,8 @@ class StartupComponent extends AppComponent<Startup.ComponentProps, Store> {
       <ActivityIndicator { ...{ animating, color, hidesWhenStopped, size } } />
     );
   }
-
-  protected get isLoading() {
-    return [
-      this.props.context == null,
-      this.props.context.env == null,
-      this.props.context.locale == null,
-      this.props.context.localization == null,
-    ].some(x => x);
-  }
 }
 
-export const Startup = withStore(
-  StartupComponent,
+export const Wait = withStore(
+  WaitComponent,
 );

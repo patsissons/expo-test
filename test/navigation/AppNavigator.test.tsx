@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore, { MockStore } from 'redux-mock-store';
 import { NavigationState, NavigationActions, NavigationScreenProp } from 'react-navigation';
-import { Store } from '../../src/components';
+import { Store } from '../../src/framework';
 import { router, AppNavigator } from '../../src/navigation';
 
 const defaultState: NavigationState = router.getStateForAction(

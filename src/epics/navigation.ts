@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { ActionsObservable } from 'redux-observable';
 import { NavigationActions, NavigationParams, NavigationBackAction, NavigationNavigateAction } from 'react-navigation';
 import { getTypeNames } from '../utils';
-import { RequestAction, actionTypes } from '../components';
+import { RequestAction, actionTypes } from '../framework';
 import { RouteNames, routes } from '../navigation';
 
 function navigateTo(routeName: RouteNames, params?: NavigationParams) {

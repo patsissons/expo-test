@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, Button } from 'react-native';
-import { DemoState, AppComponent, withState } from '..';
+import { DemoState, AppComponent, withState } from '../../framework';
 
 export namespace Demo {
   export interface Props {
