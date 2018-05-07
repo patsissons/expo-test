@@ -2,25 +2,6 @@ import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import { Store, AppComponent, withStore } from '../../framework';
 
-export namespace Wait {
-  export interface Props {
-    isWaiting: (store: Store) => boolean;
-    init?: Function;
-    header?: any;
-    activityIndicator?: any;
-  }
-
-  export interface ActivityIndicatorComponentProps {
-    animating?: boolean;
-    color?: string;
-    hidesWhenStopped?: boolean;
-    size?: number | 'small' | 'large';
-  }
-
-  export interface ComponentProps extends AppComponent.Props<Store>, ActivityIndicatorComponentProps, Props {
-  }
-}
-
 class WaitComponent extends AppComponent<Wait.ComponentProps, Store> {
   static defaultProps: Partial<Wait.ComponentProps> = {
     size: 'large',
@@ -55,6 +36,25 @@ class WaitComponent extends AppComponent<Wait.ComponentProps, Store> {
     return (
       <ActivityIndicator { ...{ animating, color, hidesWhenStopped, size } } />
     );
+  }
+}
+
+export namespace Wait {
+  export interface Props {
+    isWaiting: (store: Store) => boolean;
+    init?: Function;
+    header?: any;
+    activityIndicator?: any;
+  }
+
+  export interface ActivityIndicatorComponentProps {
+    animating?: boolean;
+    color?: string;
+    hidesWhenStopped?: boolean;
+    size?: number | 'small' | 'large';
+  }
+
+  export interface ComponentProps extends AppComponent.Props<Store>, ActivityIndicatorComponentProps, Props {
   }
 }
 

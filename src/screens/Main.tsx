@@ -29,7 +29,7 @@ export namespace Main {
   export interface Props {
   }
 
-  export interface ScreenProps extends AppComponent.ScreenProps<MainState>, Props {
+  export interface ScreenProps extends AppComponent.Props<MainState>, Props {
   }
 }
 

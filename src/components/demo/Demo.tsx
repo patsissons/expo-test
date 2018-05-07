@@ -2,15 +2,6 @@ import React from 'react';
 import { Text, View, Button } from 'react-native';
 import { DemoState, AppComponent, withState } from '../../framework';
 
-export namespace Demo {
-  export interface Props {
-    header?: string;
-  }
-
-  export interface ComponentProps extends AppComponent.Props<DemoState>, Props {
-  }
-}
-
 class DemoComponent extends AppComponent<Demo.ComponentProps, DemoState> {
   render() {
     return (
@@ -25,6 +16,15 @@ class DemoComponent extends AppComponent<Demo.ComponentProps, DemoState> {
 
   protected handleIncrement() {
     this.props.actions.demo.increment();
+  }
+}
+
+export namespace Demo {
+  export interface Props {
+    header?: string;
+  }
+
+  export interface ComponentProps extends AppComponent.Props<DemoState>, Props {
   }
 }
 
