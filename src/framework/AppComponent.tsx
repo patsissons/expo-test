@@ -9,14 +9,11 @@ export namespace AppComponent {
   export interface Props<TState> extends ReduxProvider.ComponentProps<TState> {
   }
 
-  export interface ScreenProps<TState, P = {}, O = {}> extends Props<TState>, NavigationScreenProps<P, O> {
-  }
-
   export interface ContextProps {
     context: ContextState;
   }
 
-  export interface ContextNavigationScreenProps extends NavigationScreenProps {
+  export interface ContextNavigationScreenProps<P = {}, O = {}> extends NavigationScreenProps<P, O> {
     screenProps: ContextProps;
   }
 }
