@@ -7,6 +7,10 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <MainScreen
     actions={
       Object {
+        "context": Object {
+          "loadEnv": [Function],
+          "loadLocale": [Function],
+        },
         "demo": Object {
           "decrement": [Function],
           "increment": [Function],
@@ -15,6 +19,22 @@ ShallowWrapper {
           "goBack": [Function],
           "toLogin": [Function],
           "toMain": [Function],
+        },
+      }
+    }
+    context={
+      Object {
+        "env": Object {
+          "RELEASE": "local",
+        },
+        "locale": "en",
+        "localization": Object {
+          "CurrentStateIs": "Current state is",
+          "Increment": "Increment",
+          "IncrementCount": "Increment Count",
+          "Login": "Login",
+          "LoginScreen": "Login Screen",
+          "MainScreen": "Main Screen",
         },
       }
     }
@@ -78,16 +98,12 @@ ShallowWrapper {
         </Button>,
         <Connect(DemoComponent) />,
       ],
-      "style": Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#fff",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-        Object {},
-      ],
+      "style": Object {
+        "alignItems": "center",
+        "backgroundColor": "#fff",
+        "flex": 1,
+        "justifyContent": "center",
+      },
     },
     "ref": null,
     "rendered": Array [
@@ -131,16 +147,12 @@ ShallowWrapper {
           </Button>,
           <Connect(DemoComponent) />,
         ],
-        "style": Array [
-          Object {},
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#fff",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-          Object {},
-        ],
+        "style": Object {
+          "alignItems": "center",
+          "backgroundColor": "#fff",
+          "flex": 1,
+          "justifyContent": "center",
+        },
       },
       "ref": null,
       "rendered": Array [

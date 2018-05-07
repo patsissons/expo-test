@@ -1,35 +1,23 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Button } from 'react-native';
-import configureStore, { MockStore } from 'redux-mock-store';
-import { Store, DemoState, actionTypes } from '../../../src/components';
+import { createStoreProps } from '../../storeUtils';
+import { Store, actionTypes } from '../../../src/framework';
 import { Demo } from '../../../src/components/demo/Demo';
 
-const defaultState: DemoState = {
-  count: 0,
+const defaultState: Partial<Store> = {
+  main: {
+    demo: {
+      count: 0,
+    },
+  },
 };
-
-function createStoreProps(state?: DemoState) {
-  state = state || defaultState;
-
-  const mockStore = configureStore<Partial<Store>>();
-
-  return { store: mockStore({ main: { demo: state } }) };
-}
-
-function getStateFromStore(store: MockStore<Partial<Store>>): DemoState {
-  const state = store.getState();
-
-  return state == null || state.main == null || state.main.demo == null ?
-    defaultState :
-    state.main.demo;
-}
 
 describe('components', () => {
   describe('Demo', () => {
     it('renders without crashing', () => {
       // Arrange
-      const storeProps = createStoreProps();
+      const storeProps = createStoreProps(defaultState);
       const component = (<Demo { ...storeProps as any } />);
 
       // Act
@@ -42,8 +30,8 @@ describe('components', () => {
     it('renders a custom header', () => {
       // Arrange
       const header = 'test';
-      const storeProps = createStoreProps();
-      const state = getStateFromStore(storeProps.store);
+      const storeProps = createStoreProps(defaultState);
+      const state = storeProps.store.getState();
       const component = (<Demo { ...storeProps as any } header={ header } />);
 
       // Act
@@ -54,13 +42,20 @@ describe('components', () => {
         .find({ testID: 'state' })
         .children()
         .text(),
-      ).toMatch(new RegExp(`^${ header }${ state.count }$`));
+      ).toMatch(new RegExp(`^${ header } ${ state.main!.demo.count }$`));
     });
 
     it('renders a custom count state', () => {
       // Arrange
-      const storeProps = createStoreProps({ count: 123 });
-      const state = getStateFromStore(storeProps.store);
+      const initialState = {
+        main: {
+          demo: {
+            count: 123,
+          },
+        },
+      };
+      const storeProps = createStoreProps(initialState);
+      const state = storeProps.store.getState();
       const component = (<Demo { ...storeProps as any } />);
 
       // Act
@@ -71,12 +66,12 @@ describe('components', () => {
         .find({ testID: 'state' })
         .children()
         .text(),
-      ).toMatch(new RegExp(`${ state.count }$`));
+      ).toMatch(new RegExp(`${ state.main!.demo.count }$`));
     });
 
     it('invokes the increment action after pushing the button', () => {
       // Arrange
-      const storeProps = createStoreProps();
+      const storeProps = createStoreProps(defaultState);
       const component = (<Demo { ...storeProps as any } />);
 
       // Act
@@ -85,20 +80,6 @@ describe('components', () => {
 
       // Assert
       expect(storeProps.store.getActions()).toEqual([{ type: actionTypes.demo.DemoIncrement }]);
-    });
-
-    it('can access env', () => {
-      // Arrange
-      const storeProps = createStoreProps();
-      const component = (<Demo { ...storeProps as any } />);
-
-      // Act
-      const result = shallow(component).dive();
-      const instance: any = result.instance();
-
-      // Assert
-      expect(instance.env).toBeTruthy();
-      expect(instance.env.RELEASE).toBeTruthy();
     });
   });
 });

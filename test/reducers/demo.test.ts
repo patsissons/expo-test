@@ -1,4 +1,4 @@
-import { DemoState, RequestAction, DemoPayload, actionTypes } from '../../src/components';
+import { DemoState, RequestAction, DemoPayload, actionTypes } from '../../src/framework';
 import { reducer } from '../../src/reducers/demo';
 
 const state: DemoState = { count: 0 };

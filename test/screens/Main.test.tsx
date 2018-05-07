@@ -1,29 +1,23 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Button } from 'react-native';
-import configureStore from 'redux-mock-store';
-import { Store, MainState, actionTypes } from '../../src/components';
+import { createStoreProps } from '../storeUtils';
+import { Store, actionTypes } from '../../src/framework';
 import { Main } from '../../src/screens/Main';
 
-const defaultState: MainState = {
-  demo: {
-    count: 0,
+const defaultState: Partial<Store> = {
+  main: {
+    demo: {
+      count: 0,
+    },
   },
 };
-
-function createStoreProps(state?: MainState) {
-  state = state || defaultState;
-
-  const mockStore = configureStore<Partial<Store>>();
-
-  return { store: mockStore({ main: state }) };
-}
 
 describe('screens', () => {
   describe('Main', () => {
     it('renders without crashing', () => {
       // Arrange
-      const storeProps = createStoreProps();
+      const storeProps = createStoreProps(defaultState);
       const component = (<Main { ...storeProps as any } />);
 
       // Act
@@ -35,7 +29,7 @@ describe('screens', () => {
 
     it('navigates to login after pressing the button', () => {
       // Arrange
-      const storeProps = createStoreProps();
+      const storeProps = createStoreProps(defaultState);
       const component = (<Main { ...storeProps as any } />);
 
       // Act

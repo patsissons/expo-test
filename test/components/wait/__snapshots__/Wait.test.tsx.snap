@@ -1,0 +1,327 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components Wait renders loaded mode without crashing: loading 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <WaitComponent
+    actions={
+      Object {
+        "context": Object {
+          "loadEnv": [Function],
+          "loadLocale": [Function],
+        },
+        "demo": Object {
+          "decrement": [Function],
+          "increment": [Function],
+        },
+        "navigation": Object {
+          "goBack": [Function],
+          "toLogin": [Function],
+          "toMain": [Function],
+        },
+      }
+    }
+    context={
+      Object {
+        "env": Object {
+          "RELEASE": "local",
+        },
+        "locale": "en",
+        "localization": Object {
+          "CurrentStateIs": "Current state is",
+          "Increment": "Increment",
+          "IncrementCount": "Increment Count",
+          "Login": "Login",
+          "LoginScreen": "Login Screen",
+          "MainScreen": "Main Screen",
+        },
+      }
+    }
+    isWaiting={[Function]}
+    size="large"
+    state={
+      Object {
+        "context": Object {
+          "env": Object {
+            "RELEASE": "local",
+          },
+          "locale": "en",
+          "localization": Object {
+            "CurrentStateIs": "Current state is",
+            "Increment": "Increment",
+            "IncrementCount": "Increment Count",
+            "Login": "Login",
+            "LoginScreen": "Login Screen",
+            "MainScreen": "Main Screen",
+          },
+        },
+      }
+    }
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+  >
+    <div>
+      test
+    </div>
+  </WaitComponent>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": "test",
+    },
+    "ref": null,
+    "rendered": "test",
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "test",
+      },
+      "ref": null,
+      "rendered": "test",
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`components Wait renders loading mode without crashing: loading 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <WaitComponent
+    actions={
+      Object {
+        "context": Object {
+          "loadEnv": [Function],
+          "loadLocale": [Function],
+        },
+        "demo": Object {
+          "decrement": [Function],
+          "increment": [Function],
+        },
+        "navigation": Object {
+          "goBack": [Function],
+          "toLogin": [Function],
+          "toMain": [Function],
+        },
+      }
+    }
+    context={
+      Object {
+        "env": Object {
+          "RELEASE": "local",
+        },
+        "locale": "en",
+        "localization": Object {
+          "CurrentStateIs": "Current state is",
+          "Increment": "Increment",
+          "IncrementCount": "Increment Count",
+          "Login": "Login",
+          "LoginScreen": "Login Screen",
+          "MainScreen": "Main Screen",
+        },
+      }
+    }
+    isWaiting={[Function]}
+    size="large"
+    state={
+      Object {
+        "context": Object {
+          "env": Object {
+            "RELEASE": "local",
+          },
+          "locale": "en",
+          "localization": Object {
+            "CurrentStateIs": "Current state is",
+            "Increment": "Increment",
+            "IncrementCount": "Increment Count",
+            "Login": "Login",
+            "LoginScreen": "Login Screen",
+            "MainScreen": "Main Screen",
+          },
+        },
+      }
+    }
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        false,
+        <ActivityIndicator
+          animating={true}
+          color="#999999"
+          hidesWhenStopped={true}
+          size="large"
+        />,
+      ],
+      "style": Object {
+        "alignItems": "center",
+        "backgroundColor": "#fff",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      false,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "animating": true,
+          "color": "#999999",
+          "hidesWhenStopped": true,
+          "size": "large",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          false,
+          <ActivityIndicator
+            animating={true}
+            color="#999999"
+            hidesWhenStopped={true}
+            size="large"
+          />,
+        ],
+        "style": Object {
+          "alignItems": "center",
+          "backgroundColor": "#fff",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        false,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "animating": true,
+            "color": "#999999",
+            "hidesWhenStopped": true,
+            "size": "large",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

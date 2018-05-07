@@ -1,26 +1,19 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import configureStore from 'redux-mock-store';
-import { Store, LoginState } from '../../src/components';
+import { createStoreProps } from '../storeUtils';
 import { Login } from '../../src/screens/Login';
+import { Store } from '../../src/framework';
 
-const defaultState: LoginState = {
+const defaultState: Partial<Store> = {
+  login: {},
 };
-
-function createStoreProps(state?: LoginState) {
-  state = state || defaultState;
-
-  const mockStore = configureStore<Partial<Store>>();
-
-  return { store: mockStore({ login: state }) };
-}
 
 describe('screens', () => {
   describe('Main', () => {
-    it('renders without crashing', () => {
+    it.only('renders without crashing', () => {
       // Arrange
-      const storeProps = createStoreProps();
-      const component = (<Login { ...storeProps as any } />);
+      const props = createStoreProps(defaultState);
+      const component = (<Login { ...props as any } />);
 
       // Act
       const result = shallow(component).dive();
