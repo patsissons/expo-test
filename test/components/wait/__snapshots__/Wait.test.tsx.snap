@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components Startup renders loaded mode without crashing: loading 1`] = `
+exports[`components Wait renders loaded mode without crashing: loading 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <StartupComponent
+  Symbol(enzyme.__unrendered__): <WaitComponent
     actions={
       Object {
         "context": Object {
@@ -24,18 +24,37 @@ ShallowWrapper {
     }
     context={
       Object {
-        "env": Object {},
-        "locale": "test",
-        "localization": Object {},
+        "env": Object {
+          "RELEASE": "local",
+        },
+        "locale": "en",
+        "localization": Object {
+          "CurrentStateIs": "Current state is",
+          "Increment": "Increment",
+          "IncrementCount": "Increment Count",
+          "Login": "Login",
+          "LoginScreen": "Login Screen",
+          "MainScreen": "Main Screen",
+        },
       }
     }
+    isWaiting={[Function]}
     size="large"
     state={
       Object {
         "context": Object {
-          "env": Object {},
-          "locale": "test",
-          "localization": Object {},
+          "env": Object {
+            "RELEASE": "local",
+          },
+          "locale": "en",
+          "localization": Object {
+            "CurrentStateIs": "Current state is",
+            "Increment": "Increment",
+            "IncrementCount": "Increment Count",
+            "Login": "Login",
+            "LoginScreen": "Login Screen",
+            "MainScreen": "Main Screen",
+          },
         },
       }
     }
@@ -70,7 +89,11 @@ ShallowWrapper {
         "unsubscribe": [Function],
       }
     }
-  />,
+  >
+    <div>
+      test
+    </div>
+  </WaitComponent>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -78,9 +101,29 @@ ShallowWrapper {
     "simulateEvent": [Function],
     "unmount": [Function],
   },
-  Symbol(enzyme.__node__): undefined,
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": "test",
+    },
+    "ref": null,
+    "rendered": "test",
+    "type": "div",
+  },
   Symbol(enzyme.__nodes__): Array [
-    undefined,
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "test",
+      },
+      "ref": null,
+      "rendered": "test",
+      "type": "div",
+    },
   ],
   Symbol(enzyme.__options__): Object {
     "adapter": ReactSixteenAdapter {
@@ -92,11 +135,11 @@ ShallowWrapper {
 }
 `;
 
-exports[`components Startup renders loading mode without crashing: loading 1`] = `
+exports[`components Wait renders loading mode without crashing: loading 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <StartupComponent
+  Symbol(enzyme.__unrendered__): <WaitComponent
     actions={
       Object {
         "context": Object {
@@ -114,11 +157,40 @@ ShallowWrapper {
         },
       }
     }
-    context={Object {}}
+    context={
+      Object {
+        "env": Object {
+          "RELEASE": "local",
+        },
+        "locale": "en",
+        "localization": Object {
+          "CurrentStateIs": "Current state is",
+          "Increment": "Increment",
+          "IncrementCount": "Increment Count",
+          "Login": "Login",
+          "LoginScreen": "Login Screen",
+          "MainScreen": "Main Screen",
+        },
+      }
+    }
+    isWaiting={[Function]}
     size="large"
     state={
       Object {
-        "context": Object {},
+        "context": Object {
+          "env": Object {
+            "RELEASE": "local",
+          },
+          "locale": "en",
+          "localization": Object {
+            "CurrentStateIs": "Current state is",
+            "Increment": "Increment",
+            "IncrementCount": "Increment Count",
+            "Login": "Login",
+            "LoginScreen": "Login Screen",
+            "MainScreen": "Main Screen",
+          },
+        },
       }
     }
     store={
